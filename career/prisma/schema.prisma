@@ -1,12 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../lib/generated/prisma"
 }
 
 datasource db {
@@ -24,7 +17,7 @@ model User {
   industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
- 
+
   // Profile fields
   bio           String?
   experience    Int?      // Years of experience
@@ -89,11 +82,11 @@ model IndustryInsight {
   
   // Industry trends
   growthRate    Float     // Industry growth rate
-  demandLevel   DemandLevel    // "High", "Medium", "Low"
+  demandLevel   String    // "High", "Medium", "Low"
   topSkills     String[]  // Most in-demand skills
   
   // Market conditions
-  marketOutlook MarketOutlook    // "Positive", "Neutral", "Negative"
+  marketOutlook String    // "Positive", "Neutral", "Negative"
   keyTrends     String[]  // Array of current industry trends
   
   // Learning suggestions
@@ -103,16 +96,4 @@ model IndustryInsight {
   nextUpdate    DateTime  // Scheduled update time
 
   @@index([industry])
-}
-
-enum DemandLevel {
-  HIGH
-  MEDIUM
-  LOW 
-}
-
-enum MarketOutlook {
-  POSITIVE 
-  NEUTRAL 
-  NEGATIVE 
 }
