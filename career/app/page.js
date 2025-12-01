@@ -193,7 +193,7 @@ export default function LandingPage() {
             </h2>
             <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
               Join thousands of professionals who are advancing their careers
-              with AI-powered guidance.
+              with us.
             </p>
             <Link href="/dashboard" passHref>
               <Button
